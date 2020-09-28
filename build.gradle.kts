@@ -23,6 +23,10 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	runtimeOnly("mysql:mysql-connector-java")
+
+	implementation("com.graphql-java:graphql-java:11.0")
+	implementation("com.graphql-java:graphql-java-spring-boot-starter-webmvc:1.0")
+
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
 	}
