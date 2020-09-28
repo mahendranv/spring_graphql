@@ -2,15 +2,13 @@ package com.ex2.books.graphql
 
 import org.springframework.context.annotation.Bean
 import org.springframework.stereotype.Service
-import java.net.URL
 import graphql.GraphQL
-import com.google.common.io.Resources
 import graphql.schema.GraphQLSchema
 import graphql.schema.idl.*
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import java.io.File
 import javax.annotation.PostConstruct
-import javax.annotation.Resource
 
 @Service
 class GraphQLService {
@@ -19,6 +17,9 @@ class GraphQLService {
 
     @Value("classpath:schema.graphqls")
     private lateinit var schemaFile: org.springframework.core.io.Resource
+
+    @Autowired
+    private lateinit var allBooksDataFetcher: AllBooksDataFetcher
 
     @Bean
     fun graphQL(): GraphQL {
@@ -40,6 +41,9 @@ class GraphQLService {
 
     private fun buildWiring(): RuntimeWiring {
         return RuntimeWiring.newRuntimeWiring()
+                .type(TypeRuntimeWiring.newTypeWiring("Query") { builder ->
+                    builder.dataFetcher("getAllBooks", allBooksDataFetcher)
+                })
                 .build()
     }
 
