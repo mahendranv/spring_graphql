@@ -31,8 +31,8 @@ Refer https://graphql.org/ for the usage.
 - [x] Data fetcher - with query
 
 
-## Read further on each setup here
-1. [MySQL](./db_setup.md)
-2. [JPA Repository](./docs/jpa_repository.md)
-3. [GraphQL - Fetch all books](./data_fetch_all_books.md)
-4. [Graph QL - Book by ISBN](./data_fetcher_book_by_isbn.md)
+## Each setup on this project explained here
+1. [Database and user authorization](./docs/db_setup.md)
+2. [JPA Repository and entity](./docs/jpa_repository.md)
+3. [GraphQL - Fetch all books](./docs/data_fetch_all_books.md)
+4. [Graph QL - Book by ISBN](./docs/data_fetcher_book_by_isbn.md)
