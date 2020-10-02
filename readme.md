@@ -24,7 +24,9 @@ Refer https://graphql.org/ for the usage.
 
 - [x] Project initial setup
 - [x] Create & connectMySQL db
-- [ ] GraphQL basic setup
-- [ ] Data fetchers setup
-- [ ] GraphQL playground
+- [x] GraphQL basic setup
+- [x] Data fetchers setup
+- [x] GraphQL playground
+- [x] Data fetcher - All items
+- [x] Data fetcher - with query
 

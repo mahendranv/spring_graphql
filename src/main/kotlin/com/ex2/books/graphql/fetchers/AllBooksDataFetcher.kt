@@ -1,4 +1,4 @@
-package com.ex2.books.graphql
+package com.ex2.books.graphql.fetchers
 
 import com.ex2.books.models.Book
 import com.ex2.books.repo.BooksRepo
