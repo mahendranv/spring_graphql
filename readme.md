@@ -29,6 +29,11 @@ Refer https://graphql.org/ for the usage.
 - [x] GraphQL playground
 - [x] Data fetcher - All items
 - [x] Data fetcher - with query
+- [ ] GraphQL - mutation
+- [ ] GraphQL - Nested objects
+- [ ] GraphQL - Graceful error handling
+- [ ] Authentication/authorization
+- [ ] OAuth
 
 
 ## Each setup on this project explained here
