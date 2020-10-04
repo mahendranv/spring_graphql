@@ -49,22 +49,38 @@ class AllBooksDataFetcher : DataFetcher<List<Book>> {
 }
 ```
 
+Update:
+
+```kotlin
+    private val bookByIsbn = DataFetcher { env ->
+        val isbn = env?.arguments?.get("isbn")?.toString()
+                ?: throw Exception("Argument isbn is missing")
+        val book = booksRepo.findByIsbn(isbn).firstOrNull()
+                ?: throw Exception("Book not found for $isbn")
+        book
+    }
+
+    val queries = mapOf(
+            "getAllBooks" to getAllBooks
+    )
+
+```
+
 
 
 ## Registering data fetcher to graphQL service
 
-Name `getAllBooks` resolves to the query type and instance of `AllBooksDataFetcher` is assigned for the same.
+~~Name `getAllBooks` resolves to the query type and instance of `AllBooksDataFetcher` is assigned for the same.~~
 
-
+Register the query mapping in GraphQL wiring.
 
 *GraphQLService.kt*
 
-```
+```kotlin
 private fun buildWiring(): RuntimeWiring {
         return RuntimeWiring.newRuntimeWiring()
                 .type(TypeRuntimeWiring.newTypeWiring("Query") { builder ->
-                    builder
-                            .dataFetcher("getAllBooks", allBooksDataFetcher)
+                    builder.dataFetchers(booksDataFetcher.queries)
                 })
                 .build()
     }

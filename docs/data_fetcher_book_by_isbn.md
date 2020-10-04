@@ -45,10 +45,34 @@ class BookByIsbnFetcher : DataFetcher<Book> {
 }
 ```
 
-## Service registration
+Update:
+```kotlin
+    private val bookByIsbn = DataFetcher { env ->
+            val isbn = env?.arguments?.get("isbn")?.toString()
+                    ?: throw Exception("Argument isbn is missing")
+            val book = booksRepo.findByIsbn(isbn).firstOrNull()
+                    ?: throw Exception("Book not found for $isbn")
+            book
+        }
 
-Instance of `BookByIsbnFetcher` registered to graphQL service.
-
+    val queries = mapOf(
+                "bookByIsbn" to bookByIsbn
+        )
 ```
-.dataFetcher("bookByIsbn", bookByIsbnFetcher)
+
+
+## Registering data fetcher to graphQL service
+
+Register the query mapping in GraphQL wiring.
+
+*GraphQLService.kt*
+
+```kotlin
+private fun buildWiring(): RuntimeWiring {
+        return RuntimeWiring.newRuntimeWiring()
+                .type(TypeRuntimeWiring.newTypeWiring("Query") { builder ->
+                    builder.dataFetchers(booksDataFetcher.queries)
+                })
+                .build()
+    }
 ```
