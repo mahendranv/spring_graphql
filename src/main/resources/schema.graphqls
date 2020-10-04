@@ -1,6 +1,12 @@
 schema {
 
-    query: Query
+    query: Query,
+    mutation: Mutation
+}
+
+type Mutation {
+
+    createBook(block: BookInput): Book
 }
 
 
@@ -19,5 +25,13 @@ type Book {
     title: String
 
     author: String
+}
 
+input BookInput {
+
+    isbn: String
+
+    title: String
+
+    author: String
 }

@@ -2,6 +2,7 @@ package com.ex2.books.graphql
 
 import com.ex2.books.graphql.fetchers.AllBooksDataFetcher
 import com.ex2.books.graphql.fetchers.BookByIsbnFetcher
+import com.ex2.books.graphql.fetchers.BooksDataFetcher
 import org.springframework.context.annotation.Bean
 import org.springframework.stereotype.Service
 import graphql.GraphQL
@@ -25,6 +26,9 @@ class GraphQLService {
 
     @Autowired
     private lateinit var bookByIsbnFetcher: BookByIsbnFetcher
+
+    @Autowired
+    private lateinit var booksDataFetcher: BooksDataFetcher
 
     @Bean
     fun graphQL(): GraphQL {
@@ -50,6 +54,10 @@ class GraphQLService {
                     builder
                             .dataFetcher("getAllBooks", allBooksDataFetcher)
                             .dataFetcher("bookByIsbn", bookByIsbnFetcher)
+                })
+                .type(TypeRuntimeWiring.newTypeWiring("Mutation") {
+                    builder->
+                    builder.dataFetchers(booksDataFetcher.mutations)
                 })
                 .build()
     }
