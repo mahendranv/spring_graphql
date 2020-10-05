@@ -23,8 +23,6 @@ type Book {
     isbn: String
 
     title: String
-
-    author: String
 }
 
 input BookInput {
@@ -32,6 +30,4 @@ input BookInput {
     isbn: String
 
     title: String
-
-    author: String
 }

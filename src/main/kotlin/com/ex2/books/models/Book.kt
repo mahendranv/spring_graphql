@@ -15,9 +15,5 @@ data class Book(
         val title: String = "",
 
         @Column(name = "isbn")
-        val isbn: String? = null,
-
-        @Column(name = "author")
-        val author: String = ""
-
+        val isbn: String? = null
 )

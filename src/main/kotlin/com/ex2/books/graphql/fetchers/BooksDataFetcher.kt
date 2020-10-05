@@ -23,7 +23,6 @@ class BooksDataFetcher {
 
         val block = Book(
                 title = input["title"] as String,
-                author = input["author"] as String,
                 isbn = input["isbn"] as String,
                 id = -1
         )
