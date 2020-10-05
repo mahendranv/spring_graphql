@@ -7,15 +7,22 @@ schema {
 type Mutation {
 
     createBook(block: BookInput): Book
+
+    createAuthor(name: String): Author
 }
 
 
 type Query {
 
+    # Books
     getAllBooks: [Book]
     bookByIsbn(isbn: String): Book
+
+    # Authors
+    getAllAuthors: [Author]
 }
 
+# Response models
 type Book {
 
     id: Int
@@ -23,6 +30,13 @@ type Book {
     isbn: String
 
     title: String
+}
+
+type Author {
+
+    id: Int
+
+    name: String
 }
 
 input BookInput {
