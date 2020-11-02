@@ -66,6 +66,7 @@ Above gives an idea of how nested entities handled with GraphQL. Let's cover som
 
 Assume, the author has contact info (list of addresses and phone numbers)
 
+```
 Author
  - Contact info
  +- Phone [
@@ -75,6 +76,7 @@ Author
  +-- { line1, line2, zip }
  +-- { line1, line2, zip }
  ]
+```
   
 It is totally possible to include the additional mappings, without touching the book entity.
 
@@ -82,6 +84,7 @@ It is totally possible to include the additional mappings, without touching the 
 
 Add some trivia to the book, quotes from the book or publisher info.
 
+```
 Book
 +-Quotes[
 +--- { page, quote }
@@ -90,5 +93,6 @@ Book
 +--- { description, reference }
 +]
 +-PublishedBy { name, year}
+```
 
 Entity can grow but fetched only as per client request. *No more tailoring the API for each usecase*.  
