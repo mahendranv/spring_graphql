@@ -30,7 +30,7 @@ Refer https://graphql.org/ for the usage.
 - [x] Data fetcher - All items
 - [x] Data fetcher - with query
 - [x] GraphQL - mutation
-- [ ] GraphQL - Nested objects
+- [x] GraphQL - Nested objects
 - [ ] GraphQL - Graceful error handling
 - [ ] Authentication/authorization
 - [ ] OAuth
@@ -40,5 +40,6 @@ Refer https://graphql.org/ for the usage.
 1. [Database and user authorization](./docs/db_setup.md)
 2. [JPA Repository and entity](./docs/jpa_repository.md)
 3. [GraphQL - Fetch all books](./docs/data_fetch_all_books.md)
-4. [Graph QL - Book by ISBN](./docs/data_fetcher_book_by_isbn.md)
+4. [GraphQL - Book by ISBN](./docs/data_fetcher_book_by_isbn.md)
 5. [GraphQL - Create book mutation](./docs/create_book_mutation.md)
+5. [GraphQL - Nested entity handling](./docs/entity_relations_book_author.md)
