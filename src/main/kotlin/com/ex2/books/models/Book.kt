@@ -15,5 +15,18 @@ data class Book(
         val title: String = "",
 
         @Column(name = "isbn")
-        val isbn: String? = null
+        val isbn: String? = null,
+
+        @ManyToMany(fetch = FetchType.LAZY)
+        @JoinTable(
+                name = "link_book_author",
+                joinColumns = [
+                    JoinColumn(name = "book_id")
+                ],
+                inverseJoinColumns = [
+                    JoinColumn(name = "author_id")
+                ]
+        )
+        @Column(name = "authors")
+        val authors: List<Author> = mutableListOf()
 )

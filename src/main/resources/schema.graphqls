@@ -30,6 +30,8 @@ type Book {
     isbn: String
 
     title: String
+
+    authors: [Author]
 }
 
 type Author {

@@ -2,13 +2,13 @@ package com.ex2.books.graphql
 
 import com.ex2.books.graphql.fetchers.AuthorsDataFetcher
 import com.ex2.books.graphql.fetchers.BooksDataFetcher
-import org.springframework.context.annotation.Bean
-import org.springframework.stereotype.Service
 import graphql.GraphQL
 import graphql.schema.GraphQLSchema
 import graphql.schema.idl.*
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
+import org.springframework.context.annotation.Bean
+import org.springframework.stereotype.Service
 import java.io.File
 import javax.annotation.PostConstruct
 
