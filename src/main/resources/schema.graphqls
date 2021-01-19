@@ -9,6 +9,8 @@ type Mutation {
     createBook(block: BookInput): Book
 
     createAuthor(name: String): Author
+
+    mapAuthor(bookVsAuthorList: [BookVsAuthorInput!]): [BookVsAuthor]
 }
 
 
@@ -41,9 +43,23 @@ type Author {
     name: String
 }
 
+type BookVsAuthor {
+
+    bookId: Int,
+
+    authorId: Int
+}
+
 input BookInput {
 
     isbn: String
 
     title: String
+}
+
+input BookVsAuthorInput {
+
+    bookId: Int,
+
+    authorId: Int
 }

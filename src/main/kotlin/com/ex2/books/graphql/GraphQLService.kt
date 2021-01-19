@@ -1,6 +1,7 @@
 package com.ex2.books.graphql
 
 import com.ex2.books.graphql.fetchers.AuthorsDataFetcher
+import com.ex2.books.graphql.fetchers.BookVsAuthorDataFetcher
 import com.ex2.books.graphql.fetchers.BooksDataFetcher
 import graphql.GraphQL
 import graphql.schema.GraphQLSchema
@@ -25,6 +26,9 @@ class GraphQLService {
 
     @Autowired
     private lateinit var authorsDataFetcher: AuthorsDataFetcher
+
+    @Autowired
+    private lateinit var bookVsAuthorDataFetcher: BookVsAuthorDataFetcher
 
     @Bean
     fun graphQL(): GraphQL {
@@ -55,6 +59,7 @@ class GraphQLService {
                     builder
                             .dataFetchers(booksDataFetcher.mutations)
                             .dataFetchers(authorsDataFetcher.mutations)
+                            .dataFetchers(bookVsAuthorDataFetcher.mutations)
                 })
                 .build()
     }
